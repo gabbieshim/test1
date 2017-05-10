@@ -1,0 +1,43 @@
+<div class="container">
+    <form action="/write" method="post">
+      <h1>FORM</h1>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" class="form-control" placeholder="title" name="tt">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Content</label>
+        <textarea class="form-control" placeholder="content" name="cc"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    
+    <!---RUBY-->
+    <% @pp.each do |p| %> <!---go to each @pp, do  -->
+      <div class="well"> <br>
+        Title = <%=p.title%> <br>
+        Content = <%=p.content%> <br>
+        <a href="/delete/<%=p.id%>"><button class="del">delete</button></a>
+        <a href="/update/<%=p.id%>"><button class="upd">update</button></a>
+        <!---before make update btn, go to folders 'views->home', and then make new file as 'update.html.erb'-->
+      
+      
+        <!---create form of comments, create model, table and then do migrate-->
+        <form action="/save/comment/<%=p.id%>" method="post">
+          <div class="form-group">
+          <label for="exampleInputPassword1">Content</label>
+          <textarea class="form-control" placeholder="content" name="cc"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      
+      </div>
+      
+      
+
+
+
+
+
+    <%end%>
+</div>
