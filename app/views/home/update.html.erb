@@ -1,14 +1,14 @@
 <div class="container">
-    <form action="/updates/<%=@pp.id%>" method="post">
-      <h1>Update </h1>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Updated Title</label>
+   <form action="/updates/<%=@pp.id%>" method="post">
+    <h1>EDIT YOUR POST</h1>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
         <input type="text" class="form-control" name="tttt" value="<%=@pp.title%>">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Updated Content</label>
-        <textarea class="form-control" name="cccc"><%=@pp.content%></textarea>
+        <label for="exampleInputPassword1">Content</label>
+        <textarea class="form-control" name="cccc"><%=@pp.content%></textarea>  <!--DO NOT PUT 'value' when you using textarea-->
       </div>
-      <button type="submit" class="btn btn-default">Update</button>
+      <button type="submit" class="btn btn-default">Save</button>
     </form>
 </div>

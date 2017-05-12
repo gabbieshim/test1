@@ -29,10 +29,7 @@ class HomeController < ApplicationController
     pp.title = params[:tttt]
     pp.content = params[:cccc]
     pp.save
-    
     redirect_to '/home/index' 
-  
   end
-  
   
 end
