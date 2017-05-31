@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  devise_for :users # wanna have a look this go to bash: and do 'rake routs'
   
+  root 'home#index'
+  get 'home/index' 
   post '/write' => 'home#write'
   get 'delete/:id' => 'home#delete' #grab <delete/:id> from <index.html>
   get 'update/:id' => 'home#update'

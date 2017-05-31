@@ -1,6 +1,27 @@
 <div class="container">
   
   <h1>POSTS</h1>
+  <% if flash[:error] %>
+    <%= flash[:error] %>
+  <% end %>
+  <% if user_signed_in? %>
+    <p>Current user: <%= current_user.email.split('@').first %></p><br>
+  <%end%>
+  
+  <!--if wanna hide email address,
+       put "split('@').first"
+  -->
+  
+  <!--if user is sign in, show show sign out-->
+  <% if user_signed_in? %> 
+   <a href="/users/sign_out">Sign Out</a><br>
+  <% else %>
+  <!--if user is sign in, show show sign out-->
+    <a href="/users/sign_up">Sign Up</a><br>
+    <a href ="/users/sign_in">Sign In</a><br>
+  <%end%>
+  
+  <!--if user is sign in, show show sign out-->
     <form action="/write" method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">Title</label>
@@ -21,6 +42,9 @@
       <div class="col-md-6"> <br>
         Title: <%=p.title%> <br>
         Content: <%=p.content%> <br>
+        Name: <%=p.user.email %> <br>
+        Time: <%= time_ago_in_words(p.created_at)+' ago' %> <br>
+        
         <a href="/update/<%=p.id%>"><button class="btn btn-xs btn-info">Edit</button></a>
         <a href="/delete/<%=p.id%>"><button class="btn btn-xs btn-danger">Delete</button></a>
         <!---before make update btn, go folders 'views->home', and then make a new file as 'update.html.erb'-->
@@ -38,6 +62,4 @@
       <hr></div>
     <%end%>
   </div>
-  
-  
 </div>
